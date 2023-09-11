@@ -48,3 +48,5 @@ if [ -n "$(ls -A "$DOTFILES_PATH/shell/bash/completions/")" ]; then
     source "$bash_file"
   done
 fi
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

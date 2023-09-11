@@ -5,6 +5,7 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias ll="ls -l"
 alias la="ls -la"
+alias l="ls"
 alias ~="cd ~"
 alias dotfiles='cd $DOTFILES_PATH'
 
@@ -28,3 +29,8 @@ alias i.='(idea $PWD &>/dev/null &)'
 alias c.='(code $PWD &>/dev/null &)'
 alias o.='open .'
 alias up='dot package update_all'
+
+# personal
+
+alias nv='nvim'
+alias rgr='ranger'

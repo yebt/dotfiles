@@ -1,11 +1,19 @@
 # Enable aliases to be sudo’ed
+LISTER="ls"
+
+if command -v exa &>/dev/null; then
+    LISTER="exa --icons"
+    alias lt="exa -T"
+    alias lt1="exa -TL1"
+fi
+
 alias sudo='sudo '
 
 alias ..="cd .."
 alias ...="cd ../.."
-alias ll="ls -l"
-alias la="ls -la"
-alias l="ls"
+alias ll="$LISTER -l"
+alias la="$LISTER -la"
+alias l="$LISTER"
 alias ~="cd ~"
 alias dotfiles='cd $DOTFILES_PATH'
 

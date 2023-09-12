@@ -9,8 +9,8 @@ export CODELY_THEME_STATUS_ICON_OK=""
 export CODELY_THEME_STATUS_ICON_KO=""
 
 #export DOTLY_THEME="minimal"
-#export DOTLY_THEME="mod"
-export DOTLY_THEME="agnoster"
+export DOTLY_THEME="mod"
+#export DOTLY_THEME="agnoster"
 
 # ------------------------------------------------------------------------------
 # Languages
@@ -18,6 +18,7 @@ export DOTLY_THEME="agnoster"
 export JAVA_HOME='/Library/Java/JavaVirtualMachines/amazon-corretto-15.jdk/Contents/Home'
 export GEM_HOME="$HOME/.gem"
 export GOPATH="$HOME/.go"
+export COMPOSER_PATH="$HOME/.config/composer/vendor"
 
 # ------------------------------------------------------------------------------
 # Apps
@@ -30,17 +31,21 @@ fi
 
 export FZF_DEFAULT_OPTS="--color=$fzf_colors --reverse"
 
+export DOCKER_HOST=unix:///run/user/1000/podman/podman.sock
+
 # ------------------------------------------------------------------------------
 # Path - The higher it is, the more priority it has
 # ------------------------------------------------------------------------------
 path=(
 	"$HOME/bin"
+	"$HOME/.local/bin"
 	"$DOTLY_PATH/bin"
 	"$DOTFILES_PATH/bin"
 	"$JAVA_HOME/bin"
 	"$GEM_HOME/bin"
 	"$GOPATH/bin"
 	"$HOME/.cargo/bin"
+	"$COMPOSER_PATH/bin",
 	"/usr/local/opt/ruby/bin"
 	"/usr/local/opt/python/libexec/bin"
 	"/opt/homebrew/bin"

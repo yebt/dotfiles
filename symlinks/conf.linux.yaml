@@ -9,3 +9,4 @@
     ~/.dotly: os/linux/.dotly
     ~/.config/nvim: editors/nvim
     ~/.config/tmux: os/linux/tmux
+    ~/.gitconfig: git/.gitconfig

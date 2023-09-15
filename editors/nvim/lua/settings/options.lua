@@ -29,7 +29,7 @@ opt.conceallevel = 2
 opt.number = true
 opt.relativenumber = true
 --
-opt.cmdheight = 1
+opt.cmdheight = 2
 --
 opt.confirm = true
 --

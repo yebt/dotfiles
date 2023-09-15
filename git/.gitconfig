@@ -1,0 +1,7 @@
+[user]
+	email = yahir.eduardo.bravo@gmail.com
+	name = Eduardo Bravo
+[init]
+	defaultBranch = main
+[alias]
+	unstage = reset HEAD --

@@ -17,13 +17,10 @@ end
 -- Get tthe lazypdates
 function _G.Lazyupdates()
   local ok, lst = pcall(require, 'lazy.status')
-  if not ok then
-    return ''
+  if not ok or  not (lst.has_updates()) then 
+    return ""
   end
-  if lst.has_updates() then
-    return ' ' .. require('lazy.status').updates() .. ' '
-  end
-  return ''
+  return ' ' .. require('lazy.status').updates() .. ' '
 end
 
 --

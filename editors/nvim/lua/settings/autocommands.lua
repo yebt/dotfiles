@@ -11,7 +11,7 @@ local is_available = require('utils').is_available
 
 local function event(ev)
   vim.schedule(function()
-    vim.api.nvim_exec_autocmds('User', { pattern = '' .. ev })
+    vim.api.nvim_exec_autocmds('User', { pattern = ev })
   end)
 end
 
@@ -166,3 +166,5 @@ autocmd({ 'BufNewFile' }, {
     
   end
 })
+
+

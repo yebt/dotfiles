@@ -5,3 +5,4 @@
 	defaultBranch = main
 [alias]
 	unstage = reset HEAD --
+	st = status --short --branch

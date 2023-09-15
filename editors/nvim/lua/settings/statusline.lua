@@ -29,8 +29,8 @@ end
 --
 stts_str = padding
   .. "%1*%{ v:lua.append_v(get(b:,'gitsigns_head',''),'  [', ']')}%0*"
-  .. ' %<%f '
-  .. '%h%m%r'
+  -- .. ' %<%f '
+  -- .. '%h%m%r'
   .. separator
   -- diagnostic
   .. separator
@@ -39,5 +39,9 @@ stts_str = padding
   --.. '%{ mode() }'
   .. padding
 --
+tabline_str =""
+tabline_str = "%0*%#TabLine# %#TabLineSel#%<%f %h%m%r %0*"
+--
 vim.opt.statusline = stts_str
+vim.opt.tabline = tabline_str
 --

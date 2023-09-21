@@ -1,9 +1,9 @@
 --
-local stts_str=""
+local stts_str = ''
 
 --
 local padding = '%#Normal# %0*' -- xpadding
-local separator = "%=" -- separator
+local separator = '%=' -- separator
 
 -- append var
 function _G.append_v(v, chrl, chrr, vl)
@@ -17,8 +17,8 @@ end
 -- Get tthe lazypdates
 function _G.Lazyupdates()
   local ok, lst = pcall(require, 'lazy.status')
-  if not ok or  not (lst.has_updates()) then 
-    return ""
+  if not ok or not (lst.has_updates()) then
+    return ''
   end
   return ' ' .. require('lazy.status').updates() .. ' '
 end
@@ -36,8 +36,8 @@ stts_str = padding
   --.. '%{ mode() }'
   .. padding
 --
-tabline_str =""
-tabline_str = "%0*%#TabLine# %#TabLineSel#%<%f %h%m%r %0*"
+tabline_str = ''
+tabline_str = '%0*%#TabLine# %#TabLineSel#%<%f %h%m%r %0*'
 --
 vim.opt.statusline = stts_str
 vim.opt.tabline = tabline_str

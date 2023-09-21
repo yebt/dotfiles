@@ -1,25 +1,24 @@
 --
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
 if not vim.loop.fs_stat(lazypath) then
-  vim.notify("Installing Lazy.nvim plugin manager, please wait ...")
+  vim.notify('Installing Lazy.nvim plugin manager, please wait ...')
   vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
+    'git',
+    'clone',
+    '--filter=blob:none',
+    'https://github.com/folke/lazy.nvim.git',
+    '--branch=stable', -- latest stable release
     lazypath,
   })
-  vim.notify("Done UWU")
+  vim.notify('Done UWU')
 end
 vim.opt.rtp:prepend(lazypath)
 
-
-require("lazy").setup({
+require('lazy').setup({
   defaults = {
     lazy = true, -- should plugins be lazy-loaded?
   },
-  spec = "plugins",
+  spec = 'plugins',
   checker = {
     -- automatically check for plugin updates
     enabled = true,
@@ -43,13 +42,13 @@ require("lazy").setup({
       paths = {}, -- add any custom paths here that you want to includes in the rtp
       ---@type string[] list any plugins you want to disable here
       disabled_plugins = {
-        "gzip",
+        'gzip',
         -- "matchit",
         -- "matchparen",
         -- "netrwPlugin",
-        "tarPlugin",
+        'tarPlugin',
         -- "tohtml",
-        "tutor",
+        'tutor',
         --"zipPlugin",
       },
     },

@@ -1,2 +1,2 @@
-vim.opt.omnifunc="htmlcomplete#CompleteTags"
+vim.opt.omnifunc = 'htmlcomplete#CompleteTags'
 -- omnifunc=htmlcomplete#CompleteTags',

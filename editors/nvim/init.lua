@@ -1,3 +1,3 @@
 --
-vim.g.mapleader = " "
-require("settings")
+vim.g.mapleader = ' '
+require('settings')

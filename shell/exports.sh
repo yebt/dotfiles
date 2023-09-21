@@ -49,6 +49,7 @@ path=(
 	"/usr/local/opt/ruby/bin"
 	"/usr/local/opt/python/libexec/bin"
 	"/opt/homebrew/bin"
+	"$HOME/.npm-global/bin"
 	"/usr/local/bin"
 	"/usr/local/sbin"
 	"/bin"

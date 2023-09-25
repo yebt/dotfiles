@@ -36,27 +36,41 @@ export DOCKER_HOST=unix:///run/user/1000/podman/podman.sock
 # ------------------------------------------------------------------------------
 # Path - The higher it is, the more priority it has
 # ------------------------------------------------------------------------------
-path=(
-	"$HOME/bin"
-	"$HOME/.local/bin"
-	"$DOTLY_PATH/bin"
-	"$DOTFILES_PATH/bin"
-	"$JAVA_HOME/bin"
-	"$GEM_HOME/bin"
-	"$GOPATH/bin"
-	"$HOME/.cargo/bin"
-	"$COMPOSER_PATH/bin",
-	"/usr/local/opt/ruby/bin"
-	"/usr/local/opt/python/libexec/bin"
-	"/opt/homebrew/bin"
-	"$HOME/.npm-global/bin"
-	"/usr/local/bin"
-	"/usr/local/sbin"
-	"/bin"
-	"/usr/bin"
-	"/usr/sbin"
-	"/sbin"
-	"$path"
+
+
+ path=(
+ 	"$HOME/bin"
+ 	"$HOME/.local/bin"
+ 	"$HOME/.fzf/bin"
+ 	"$DOTLY_PATH/bin"
+ 	"$DOTFILES_PATH/bin"
+ 	"$JAVA_HOME/bin"
+ 	"$GEM_HOME/bin"
+ 	"$GOPATH/bin"
+ 	"$HOME/.cargo/bin"
+ 	"$COMPOSER_PATH/bin"
+ 	"/usr/local/opt/ruby/bin"
+ 	"/usr/local/opt/python/libexec/bin"
+ 	"/opt/homebrew/bin"
+ 	"$HOME/.npm-global/bin"
+ 	"/usr/local/bin"
+ 	"/usr/local/sbin"
+ 	"/bin"
+ 	"/usr/bin"
+ 	"/usr/sbin"
+ 	"/sbin"
+ 	$path
 )
+
+
+#  join_by() {
+#      local IFS="$1"
+#      shift
+#      echo "$*"
+#  }
+
+#   path_str=$(join_by ": " "${path[@]}")
+#   typeset -TUx path_str path_t
+#   path=$path_t
 
 export path

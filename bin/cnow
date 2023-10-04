@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+# Get the current timestamp in the desired format
+timestamp="[`date +'%Y/%m/%d %H:%M:%S'`]"
+
+# Copy the timestamp to the clipboard
+echo -n "$timestamp" | xclip -selection clipboard
+
+# Provide a confirmation message
+echo "Timestamp copied to clipboard: $timestamp"

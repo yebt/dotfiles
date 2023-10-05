@@ -82,4 +82,9 @@ return {
     cmd = { 'TroubleToggle', 'Trouble' },
     opts = { use_diagnostic_signs = true },
   },
+
+	-- 
+	-- ray-x/lsp_signature.nvim
+	-- weilbith/nvim-code-action-menu
+	-- ivanjermakov/troublesum.nvim
 }

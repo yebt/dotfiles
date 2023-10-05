@@ -11,6 +11,7 @@ require('netrw')
 require('autocommands')
 require('lazybootstrap')
 require('lazyworkspace')
+require('lsp_settings')
 require('statusline') -- use lazy in stats
 
 -- restore path

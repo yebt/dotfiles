@@ -71,6 +71,10 @@ end
 --
 map('n', '0', homeVsKey, { silent = true, expr = true })
 
+--
+map('n', "[<space>", blank_above, { silent = true, desc = 'Blank above' })
+map('n', "]<space>", blank_below, { silent = true, desc = 'Blank below' })
+
 -- quit
 map('n', '<leader>q', ':q<CR>', { silent = true, desc = 'Quit of nvim' })
 -- read

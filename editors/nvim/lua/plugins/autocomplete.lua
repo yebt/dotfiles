@@ -9,37 +9,38 @@ return {
       'rafamadriz/friendly-snippets',
       config = function()
         require('luasnip.loaders.from_vscode').lazy_load()
+        require'luasnip'.filetype_extend("vue", {"vue"})
       end,
     },
     opts = {
       history = true,
       delete_check_events = 'TextChanged',
     },
-    -- keys = {
-    --   {
-    --     '<tab>',
-    --     function()
-    --       return require('luasnip').jumpable(1) and '<Plug>luasnip-jump-next' or '<tab>'
-    --     end,
-    --     expr = true,
-    --     silent = true,
-    --     mode = 'i',
-    --   },
-    --   {
-    --     '<tab>',
-    --     function()
-    --       require('luasnip').jump(1)
-    --     end,
-    --     mode = 's',
-    --   },
-    --   {
-    --     '<s-tab>',
-    --     function()
-    --       require('luasnip').jump(-1)
-    --     end,
-    --     mode = { 'i', 's' },
-    --   },
-    -- },
+    keys = {
+      {
+        '<C-l>',
+        function()
+          return require('luasnip').jumpable(1) and '<Plug>luasnip-jump-next' or '<tab>'
+        end,
+        expr = true,
+        silent = true,
+        mode = 'i',
+      },
+      {
+        '<C-l>',
+        function()
+          require('luasnip').jump(1)
+        end,
+        mode = 's',
+      },
+      {
+        '<C-h>',
+        function()
+          require('luasnip').jump(-1)
+        end,
+        mode = { 'i', 's' },
+      },
+    },
   },
 
   -- auto completion
@@ -67,6 +68,7 @@ return {
       local defaults = require('cmp.config.default')()
       return {
         completion = {
+          -- autocomplete = false,
           completeopt = 'menu,menuone,noinsert',
         },
         snippet = {

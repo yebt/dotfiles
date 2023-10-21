@@ -11,4 +11,25 @@ return function()
     -- diagnostic virtual text background, like error lens
     diagnostic_virtual_text_background = false,
   })
+
+
+  -- Set new colorschemes
+  vim.api.nvim_create_autocmd("ColorScheme", {
+    pattern = "*",
+    callback = function()
+      -- vim.api.nvim_set_hl(0, "CursorLineNr", { cterm = bold, bold = true })
+      local c = vim.api.nvim_get_hl_by_name("StatusLine", true)
+      -- 
+      vim.api.nvim_set_hl(0, "StatusLine", { fg = "#BFFFF1", bg = c.background })
+      vim.api.nvim_set_hl(0, "Visual", { bg = "#252525"})
+      -- vim.api.nvim_set_hl(0, "Visual", { bg = "#000000"})
+      -- vim.notify(vim.inspect(c))
+    end,
+  })
+
+  -- #252525
+  -- #BFFFF1
+  -- #FF934F
+  -- #C2E812
+  -- #FBBFCA
 end

@@ -710,5 +710,5 @@ return function()
 
   require("neo-tree").setup(config)
   -- overwrite keymap
-  vim.keymap.set("n", "<M-b>", "<cmd>Neotree toggle <CR>")
+  -- vim.keymap.set("n", "<M-b>", "<cmd>Neotree toggle <CR>")
 end

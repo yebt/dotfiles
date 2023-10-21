@@ -17,9 +17,24 @@ return {
   },
 
   -- auto pairs
+  -- {
+  --   'echasnovski/mini.pairs',
+  --   --event = "VeryLazy",
+  --   keys = {
+  --     { '{', mode = 'i' },
+  --     { '[', mode = 'i' },
+  --     { '(', mode = 'i' },
+  --     { '<', mode = 'i' },
+  --     { '"', mode = 'i' },
+  --     { "'", mode = 'i' },
+  --   },
+  --   opts = {},
+  -- },
+
+  -- Autopairs
   {
-    'echasnovski/mini.pairs',
-    --event = "VeryLazy",
+    "windwp/nvim-autopairs",
+    event = "InsertEnter",
     keys = {
       { '{', mode = 'i' },
       { '[', mode = 'i' },
@@ -28,6 +43,20 @@ return {
       { '"', mode = 'i' },
       { "'", mode = 'i' },
     },
-    opts = {},
+    opts = {}
   },
+
+  -- Matchup
+  -- {
+  --   "andymass/vim-matchup",
+  --   event = "VeryLazy",
+  --   init = function()
+  --     vim.g.matchup_matchparen_offscreen = { method = "popup" }
+  --     -- vim.g.matchup_matchparen_offscreen = { method = "status" }
+  --   end,
+  --   keys = {
+  --     { 'gJ', mode = { 'n', 'x' } },
+  --     { 'gK', mode = { 'n', 'x' } },
+  --   },
+  -- }
 }

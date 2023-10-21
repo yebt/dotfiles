@@ -12,11 +12,15 @@ return {
           load_textobjects = true
         end,
       },
+      -- TsAutotag
+      {
+        'windwp/nvim-ts-autotag',
+      },
     },
     cmd = { 'TSUpdateSync' },
     keys = {
       { '<c-space>', desc = 'Increment selection' },
-      { '<bs>', desc = 'Decrement selection', mode = 'x' },
+      { '<bs>',      desc = 'Decrement selection', mode = 'x' },
     },
     ---@type TSConfig
     opts = {
@@ -109,8 +113,5 @@ return {
   {
     'JoosepAlviste/nvim-ts-context-commentstring',
   },
-  -- TsAutotag
-  {
-    'windwp/nvim-ts-autotag',
-  },
+
 }

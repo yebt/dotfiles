@@ -33,7 +33,7 @@ stts_str = padding
   .. separator
   .. '%2*%{v:lua.Lazyupdates()}%0*' -- Updates
   .. ' %2l/%L:%c '
-  --.. '%{ mode() }'
+  .. '%{ mode() }'
   .. padding
 --
 tabline_str = ''

@@ -1,3 +1,4 @@
+---
 - clean: ['~']
 
 - defaults:
@@ -9,4 +10,5 @@
     ~/.dotly: os/linux/.dotly
     ~/.config/nvim: editors/nvim
     ~/.config/tmux: os/linux/tmux
+    ~/.config/alacritty: os/linux/alacritty
     ~/.gitconfig: git/.gitconfig

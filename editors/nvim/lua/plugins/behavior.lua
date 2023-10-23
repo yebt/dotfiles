@@ -145,5 +145,11 @@ return {
     "NMAC427/guess-indent.nvim",
     lazy = false,
     config = require("plugins.config.guess-indent"),
+  },
+
+  -- Tabular
+  {
+    "godlygeek/tabular",
+    cmd = { "Tabularize", "Tab" },
   }
 }

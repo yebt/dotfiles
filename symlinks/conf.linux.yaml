@@ -11,4 +11,5 @@
     ~/.config/nvim: editors/nvim
     ~/.config/tmux: os/linux/tmux
     ~/.config/alacritty: os/linux/alacritty
+    ~/.config/ranger: os/linux/ranger
     ~/.gitconfig: git/.gitconfig

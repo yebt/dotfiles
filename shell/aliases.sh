@@ -42,3 +42,4 @@ alias up='dot package update_all'
 
 alias nv='nvim'
 alias rgr='ranger'
+alias clear="clear && printf '\e[3J'"

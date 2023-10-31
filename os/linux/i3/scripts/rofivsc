@@ -1,0 +1,51 @@
+#!/bin/bash
+
+# Verificar si sqlite3 está instalado en el sistema
+if ! command -v sqlite3 &>/dev/null; then
+  echo "SQLite3 no está instalado. Por favor, instálalo para continuar."
+  exit 1
+fi
+
+# Ruta de la base de datos SQLite
+db_path="$HOME/.config/Code/User/globalStorage/state.vscdb"
+
+# Verificar si la base de datos existe en la ruta especificada
+if [ ! -f "$db_path" ]; then
+  echo "La base de datos no existe en la ruta: $db_path"
+  exit 1
+fi
+
+# Consulta SQL para obtener el valor de "history.recentlyOpenedPathsList"
+query="SELECT value FROM ItemTable WHERE key = 'history.recentlyOpenedPathsList';"
+
+# Utilizamos sqlite3 para ejecutar la consulta en la base de datos
+result=$(sqlite3 "$db_path" "$query" | jq -r '.')
+# result=$(sqlite3 "$db_path" "$query")
+
+# Mostramos el resultado
+# echo "Valor de 'history.recentlyOpenedPathsList': $result"
+# echo "$result" | jq
+
+# Formatear y mostrar cada elemento en el menú de Rofi
+selected_entry=$(echo "$result" | jq -r '.entries[].folderUri // .entries[].fileUri' |
+  while read -r uri; do
+    if [[ $uri == file://* ]]; then
+      uri="${uri#file://}"
+      uri="~${uri##$HOME}"
+    fi
+    basename=$(basename "$uri")
+    echo -e "<b>$basename</b> <i>$uri</i>"
+  done | rofi -dmenu -markup-rows)
+
+# Si se seleccionó una opción, pasarla al comando "code"
+if [[ -n "$selected_entry" ]]; then
+  name=$(echo "$selected_entry" | awk '{print $1}')
+  uri=$(echo "$selected_entry" | awk '{$1=""; print $0}' | sed -E 's/^ //')
+  if [[ $uri == "~"* ]]; then
+    uri="${uri/#\~/$HOME}"
+  fi
+  uri=$(echo "$uri" | sed -E 's/<[^>]+>//g')
+  uri="${uri/#\~/$HOME}"
+  # echo $(realpath "$uri")
+  code $(realpath "$uri")
+fi

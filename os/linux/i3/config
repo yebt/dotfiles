@@ -1,0 +1,431 @@
+# --------------------- VARS ---------------------
+set $mod Mod4
+
+#set $terminal kitty
+#set $terminal_floating kitty --class "floating_term"
+set $terminal alacritty
+set $terminal_floating  alacritty --class "floating_term"
+set $locker i3lock
+set $notificate notify-send
+set $compositor compton
+
+
+# Define names for default workspaces for which we configure key bindings later on.
+# We use variables to avoid repeating the names in multiple places.
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+set $refresh_i3status killall -SIGUSR1 i3status
+
+set $gaps_default_outer  3
+set $gaps_default_inner  2
+set $brigness_porcent 5
+set $vol_porcent 5
+
+set $latte_rosewater #dc8a78
+set $latte_flamingo  #dd7878
+set $latte_pink      #ea76cb
+set $latte_mauve     #8839ef
+set $latte_red       #d20f39
+set $latte_maroon    #e64553
+set $latte_peach     #fe640b
+set $latte_green     #40a02b
+set $latte_teal      #179299
+set $latte_sky       #04a5e5
+set $latte_sapphire  #209fb5
+set $latte_blue      #1e66f5
+set $latte_lavender  #7287fd
+set $latte_text      #4c4f69
+set $latte_subtext1  #5c5f77
+set $latte_subtext0  #6c6f85
+set $latte_overlay2  #7c7f93
+set $latte_overlay1  #8c8fa1
+set $latte_overlay0  #9ca0b0
+set $latte_surface2  #acb0be
+set $latte_surface1  #bcc0cc
+set $latte_surface0  #ccd0da
+set $latte_base      #eff1f5
+set $latte_mantle    #e6e9ef
+set $latte_crust     #dce0e8
+
+set $rosewater #f5e0dc
+set $flamingo  #f2cdcd
+set $pink      #f5c2e7
+set $mauve     #cba6f7
+set $red       #f38ba8
+set $maroon    #eba0ac
+set $peach     #fab387
+set $green     #a6e3a1
+set $teal      #94e2d5
+set $sky       #89dceb
+set $sapphire  #74c7ec
+set $blue      #89b4fa
+set $lavender  #b4befe
+set $text      #cdd6f4
+set $subtext1  #bac2de
+set $subtext0  #a6adc8
+set $overlay2  #9399b2
+set $overlay1  #7f849c
+set $overlay0  #6c7086
+set $surface2  #585b70
+set $surface1  #45475a
+set $surface0  #313244
+set $base      #1e1e2e
+set $mantle    #181825
+set $crust     #11111b
+
+# --------------------- APPAREANCE ---------------------
+
+# Font for window titles. Will also be used by the bar unless a different font
+# is used in the bar {} block below.
+font pango:monospace 8
+
+
+# This font is widely installed, provides lots of unicode glyphs, right-to-left
+# text rendering and scalability on retina/hidpi displays (thanks to pango).
+#font pango:DejaVu Sans Mono 8
+
+gaps outer $gaps_default_inner
+gaps inner $gaps_default_outer
+# inverse_outer
+smart_gaps on
+
+default_border pixel 2
+default_floating_border pixel 2
+# 
+# on|off|no_gaps
+smart_borders on
+
+
+# class                   border  backgr. text    indicator child_border
+# client.focused          #4c7899 #285577 #ffffff #2e9ef4   #285577
+# client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
+# client.unfocused        #333333 #222222 #888888 #292d2e   #222222
+# client.urgent           #2f343a #900000 #ffffff #900000   #900000
+# client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+# 
+# client.background       #ffffff
+
+# --------------------- RULES ---------------------
+
+for_window [window_role="PictureInPicture"] sticky enable, border 1pixel
+for_window [instance="nitrogen"] floating enable
+for_window [class="Apache NetBeans IDE 18"] floating enable
+
+
+for_window [window_role=floating_term] floating enable
+for_window [class=floating_term] floating enable
+
+for_window [instance="xpad"] floating enable
+
+# --------------------- ASSIGNMENTS ---------------------
+# assign [class="code"] 2
+# assign [class="Code"] 2
+
+# --------------------- AUTOSTARTS ---------------------
+
+# Start XDG autostart .desktop files using dex. See also
+# https://wiki.archlinux.org/index.php/XDG_Autostart
+exec --no-startup-id dex-autostart --autostart --environment i3
+
+# The combination of xss-lock, nm-applet and pactl is a popular choice, so
+# they are included here as an example. Modify as you see fit.
+
+# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
+# screen before suspend. Use loginctl lock-session to lock your screen.
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+
+# NetworkManager is the most popular way to manage wireless networks on Linux,
+# and nm-applet is a desktop environment-independent system tray GUI for it.
+exec --no-startup-id nm-applet
+
+# battery notification
+exec_always --no-startup-id "$HOME/.config/i3/scripts/bat/i3bat.sh"
+
+# conkye
+exec_always --no-startup-id "killall conky && conky || conky"
+
+exec_always --no-startup-id "killall picom && picom"
+
+exec_always --no-startup-id xinput set-prop "Elan Touchpad"  "libinput Tapping Enabled" 1
+# Delay of kyes
+#auto repeat delay:  660    repeat rate:  25
+exec_always --no-startup-id "xset r rate 250 20"
+# --------------------- KEYBINDINGS ---------------------
+
+# Use pactl to adjust volume in PulseAudio.
+# set $refresh_i3status killall -SIGUSR1 i3status
+# bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status && notify-send "VOLUME" "`pactl get-sink-volume @DEFAULT_SINK@` \n`pactl get-sink-mute @DEFAULT_SINK@`" -t 1000 -r 3434
+# bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status && notify-send "VOLUME" "`pactl get-sink-volume @DEFAULT_SINK@` \n`pactl get-sink-mute @DEFAULT_SINK@`" -t 1000 -r 3434
+# bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status && notify-send "VOLUME" "`pactl get-sink-volume @DEFAULT_SINK@` \n`pactl get-sink-mute @DEFAULT_SINK@`" -t 1000 -r 3434
+# bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status && $refresh_i3status && notify-send "VOLUME" "`pactl get-sink-volume @DEFAULT_SINK@` \n`pactl get-sink-mute @DEFAULT_SINK@`" -t 1000 -r 3434
+
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +$vol_porcent% && $notificate -u low -r 9 -t 1000 -h int:value:$(pactl get-sink-volume @DEFAULT_SINK@ | awk '{print $5}')  "Vol: $(pactl get-sink-volume @DEFAULT_SINK@ | awk '{print $5}') -- $(pactl get-sink-mute @DEFAULT_SINK@)"  && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -$vol_porcent% && $notificate -u low -r 9 -t 1000 -h int:value:$(pactl get-sink-volume @DEFAULT_SINK@ | awk '{print $5}')  "Vol: $(pactl get-sink-volume @DEFAULT_SINK@ | awk '{print $5}') -- $(pactl get-sink-mute @DEFAULT_SINK@)" && $refresh_i3status
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $notificate -u low  -r 9 -t 1000 "$(pactl get-sink-mute @DEFAULT_SINK@)" && $refresh_i3status
+# bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && notify-send -u normal -r 9 "$(pactl get-sink-volume @DEFAULT_SINK@)"
+
+## play-pause
+bindsym XF86AudioPlay exec --no-startup-id "playerctl play-pause"
+bindsym XF86AudioNext exec --no-startup-id "playerctl next"
+bindsym XF86AudioPrev exec --no-startup-id "playerctl previous"
+
+## Brightness
+bindsym XF86MonBrightnessUp   exec --no-startup-id light -A $brigness_porcent && $notificate -u low -r 9 -t 900 -h int:value:$(light -G) "Brgnss $(light -G)%"
+bindsym XF86MonBrightnessDown exec --no-startup-id light -U $brigness_porcent && $notificate -u low -r 9 -t 900 -h int:value:$(light -G) "Brgnss $(light -G)%"
+
+## Screenshoots
+bindsym --release Print exec --no-startup-id "~/.config/i3/scripts/screenshot.sh -m full" 
+bindsym --release Control+Print exec --no-startup-id "~/.config/i3/scripts/screenshot.sh -m full -c" 
+bindsym --release Shift+Print exec --no-startup-id "~/.config/i3/scripts/screenshot.sh -m app" 
+bindsym --release Control+Shift+Print exec --no-startup-id "~/.config/i3/scripts/screenshot.sh -m app -c" 
+
+bindsym $mod+Shift+s exec "~/.config/i3/scripts/screenshot.sh -m selection -c" 
+
+#bindsym Print exec /ruta/al/script/screenshot.sh -m selection
+
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# move tiling windows via drag & drop by left-clicking into the title bar,
+# or left-clicking anywhere into the window while holding the floating modifier.
+tiling_drag modifier titlebar
+
+# start a terminal
+#bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec $terminal
+bindsym $mod+Shift+Return  exec --no-startup-id $terminal_floating 
+
+
+# kill focused window
+bindsym $mod+Shift+q kill
+
+# start dmenu (a program launcher)
+#bindsym $mod+d exec --no-startup-id dmenu_run
+# A more modern dmenu replacement is rofi:
+# bindcode $mod+40 exec "rofi -modi drun,run -show drun"
+bindcode $mod+40 exec "rofi -modi drun,run -show run"
+bindcode $mod+Shift+40 exec "$HOME/.config/i3/scripts/rofivsc"
+# There also is i3-dmenu-desktop which only displays applications shipping a
+# .desktop file. It is a wrapper around dmenu, so you need that installed.
+# bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
+
+bindsym $mod+Shift+i exec "$HOME/.config/i3/scripts/emojiSelector/emojiselector.sh"
+
+# change focus
+bindsym $mod+j focus left
+bindsym $mod+k focus down
+bindsym $mod+l focus up
+bindsym $mod+ntilde focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+j move left
+bindsym $mod+Shift+k move down
+bindsym $mod+Shift+l move up
+bindsym $mod+Shift+ntilde move right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# split in horizontal orientation
+bindsym $mod+h split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# stick
+bindsym $mod+Mod1+s sticky toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# focus the child container
+#bindsym $mod+d focus child
+
+# switch to workspace
+bindsym $mod+1 workspace number $ws1
+bindsym $mod+2 workspace number $ws2
+bindsym $mod+3 workspace number $ws3
+bindsym $mod+4 workspace number $ws4
+bindsym $mod+5 workspace number $ws5
+bindsym $mod+6 workspace number $ws6
+bindsym $mod+7 workspace number $ws7
+bindsym $mod+8 workspace number $ws8
+bindsym $mod+9 workspace number $ws9
+bindsym $mod+0 workspace number $ws10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace number $ws1
+bindsym $mod+Shift+2 move container to workspace number $ws2
+bindsym $mod+Shift+3 move container to workspace number $ws3
+bindsym $mod+Shift+4 move container to workspace number $ws4
+bindsym $mod+Shift+5 move container to workspace number $ws5
+bindsym $mod+Shift+6 move container to workspace number $ws6
+bindsym $mod+Shift+7 move container to workspace number $ws7
+bindsym $mod+Shift+8 move container to workspace number $ws8
+bindsym $mod+Shift+9 move container to workspace number $ws9
+bindsym $mod+Shift+0 move container to workspace number $ws10
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+# exit i3 (logs you out of your X session)
+#bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+#bindsym $mod+Shift+p exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+p exec "notify-send 'uwu' `echo $PATH`"
+
+# 
+# Make the currently focused window a scratchpad
+bindsym $mod+Shift+minus move scratchpad
+
+# Show the first scratchpad window
+bindsym $mod+minus scratchpad show
+
+#
+bindsym $mod+m bar mode toggle
+#
+bindsym $mod+i exec i3-input -F 'exec light -S %s' -P 'Light:'
+#bindsym $mod+o exec i3-input -F 'exec light -S %s' -P 'Light:'
+#
+bindsym $mod+Tab workspace back_and_forth
+#
+# Show the sup-mail scratchpad window, if any.
+#bindsym mod4+s [title="^Sup ::"] scratchpad show
+
+#----
+# rezising floats
+bindsym $mod+t resize set 96 ppt 95 ppt ; move absolute position center
+bindsym $mod+Shift+t resize set 70 ppt 75 ppt ; move absolute position center
+#---
+# Center a float
+bindsym $mod+c move absolute position center
+# --
+# Special modifier
+bindsym $mod+z --release exec "xdotool key --clearmodifiers  135"
+#---------------------------- 
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym j resize shrink width 10 px or 10 ppt
+        bindsym k resize grow height 10 px or 10 ppt
+        bindsym l resize shrink height 10 px or 10 ppt
+        bindsym ntilde resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape or $mod+r
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+# borderer mode
+set $borderer "Border 0(none), 1(1pixel), n(normal), p(pixel)"
+
+mode $borderer {
+	bindsym 0 border none ; mode "default"
+	bindsym 1 border 1pixel ; mode "default"
+	bindsym n exec i3-input -F ' border normal %s' -P 'Normal border width: ' ; mode "default"
+	bindsym p exec i3-input -F ' border pixel %s' -P 'Pixel border width: ' ; mode "default"
+	#bindsym p border i3-input -F ' border pixel "%s"' -P 'Pixel border width: ' ; mode "default"
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+
+bindsym $mod+b mode $borderer
+
+# exit
+set $modePowerMenu "(e)xit, (l)ock, (s)uspend,(r)reboot, (S)hutdown"
+mode $modePowerMenu {
+    bindsym e exec --no-startup-id i3-msg exit; mode "default"
+    bindsym l exec --no-startup-id $locker; mode "default"
+    bindsym s exec --no-startup-id systemctl suspend; mode "default"
+    bindsym r exec --no-startup-id reboot; mode "default"
+    bindsym Shift+s exec --no-startup-id shutdown now; mode "default"
+    bindsym Escape mode "default"
+    bindsym Return mode "default"
+}
+bindsym $mod+shift+e mode $modePowerMenu
+
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+# bar {
+#         status_command i3status
+# }
+bar {
+
+    status_command i3status
+    # mode dock
+    mode dock
+    hidden_state hide
+    position bottom
+    padding 0px
+    tray_output primary
+    tray_padding 2
+    font pango:JetBrainsMono NF 9
+#     separator_symbol ":|:"
+#     separator_symbol "#|#"
+    separator_symbol " | "
+    
+    workspace_buttons yes
+
+    colors {
+        background #282A36
+        statusline #F8F8F2
+        separator  #44475A
+
+        focused_workspace  #44475A #44475A #F8F8F2
+        active_workspace   #282A36 #44475A #F8F8F2
+        inactive_workspace #282A36 #282A36 #BFBFBF
+        urgent_workspace   #FF5555 #FF5555 #F8F8F2
+        binding_mode       #FF5555 #FF5555 #F8F8F2
+    }
+
+}
+##

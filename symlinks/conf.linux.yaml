@@ -12,4 +12,5 @@
     ~/.config/tmux: os/linux/tmux
     ~/.config/alacritty: os/linux/alacritty
     ~/.config/ranger: os/linux/ranger
+    ~/.config/i3: os/linux/i3
     ~/.gitconfig: git/.gitconfig

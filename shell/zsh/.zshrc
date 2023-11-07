@@ -24,6 +24,9 @@ fpath=("$DOTFILES_PATH/shell/zsh/themes" "$DOTFILES_PATH/shell/zsh/completions" 
 autoload -Uz promptinit && promptinit
 prompt ${DOTLY_THEME:-codely}
 
+# Include dir completions
+zstyle ':completion:*' special-dirs true
+
 source "$DOTLY_PATH/shell/zsh/bindings/dot.zsh"
 source "$DOTLY_PATH/shell/zsh/bindings/reverse_search.zsh"
 source "$DOTFILES_PATH/shell/zsh/key-bindings.zsh"

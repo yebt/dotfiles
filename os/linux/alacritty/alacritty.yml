@@ -154,11 +154,13 @@ font:
     # family: Fira Mono
     #family: FiraCode Nerd Font
     #
-    family: Agave Nerd Font
     # family: BigBlueTerm437 Nerd Font
     # family: Iosevka Nerd Font
     # family: VictorMono Nerd Font
     # family: CaskaydiaCove Nerd Font
+    #
+    family: Agave Nerd Font
+    #family: Geist Mono
 
     # The `style` can be specified to pick a specific face.
     #style: Regular

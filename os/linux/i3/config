@@ -122,12 +122,15 @@ for_window [class="Apache NetBeans IDE 18"] floating enable
 
 
 for_window [window_role=floating_term] floating enable
+for_window [window_role="devtools"] floating enable
 for_window [class=floating_term] floating enable
 
 # Put in float like pop-up
 for_window [window_role="pop-up"] floating enable
 
 for_window [instance="xpad"] floating enable
+
+for_window [title="Electron"] floating enable
 
 # --------------------- ASSIGNMENTS ---------------------
 # assign [class="code"] 2

@@ -32,3 +32,7 @@ source "$DOTLY_PATH/shell/zsh/bindings/reverse_search.zsh"
 source "$DOTFILES_PATH/shell/zsh/key-bindings.zsh"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# tabtab source for electron-forge package
+# uninstall by removing these lines or running `tabtab uninstall electron-forge`
+[[ -f /home/eb/.local/share/pnpm/store/v3/tmp/dlx-100463/node_modules/.pnpm/tabtab@2.2.2/node_modules/tabtab/.completions/electron-forge.zsh ]] && . /home/eb/.local/share/pnpm/store/v3/tmp/dlx-100463/node_modules/.pnpm/tabtab@2.2.2/node_modules/tabtab/.completions/electron-forge.zsh

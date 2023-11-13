@@ -140,7 +140,8 @@ for_window [title="Electron"] floating enable
 
 # --------------------- ASSIGNMENTS ---------------------
 # assign [class="code"] 2
-# assign [class="Code"] 2
+assign [class="Code"] 2
+
 
 # --------------------- AUTOSTARTS ---------------------
 

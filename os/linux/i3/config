@@ -126,6 +126,8 @@ for_window [window_role="devtools"] floating enable
 
 for_window [class=floating_term] floating enable
 
+for_window [class="arandr"] floating enable
+
 # Put in float like pop-up
 for_window [window_role="pop-up"] floating enable
 
@@ -337,6 +339,9 @@ bindsym $mod+Tab workspace back_and_forth
 #
 # Show the sup-mail scratchpad window, if any.
 #bindsym mod4+s [title="^Sup ::"] scratchpad show
+
+#
+bindsym --release $mod+Shift+x exec xkill
 
 #----
 # rezising floats

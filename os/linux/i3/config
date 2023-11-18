@@ -345,11 +345,11 @@ bindsym --release $mod+Shift+x exec xkill
 
 #----
 # rezising floats
-bindsym $mod+t resize set 96 ppt 95 ppt ; move absolute position center
-bindsym $mod+Shift+t resize set 70 ppt 75 ppt ; move absolute position center
+bindsym $mod+t resize set 96 ppt 95 ppt ; move position center
+bindsym $mod+Shift+t resize set 70 ppt 75 ppt ; move position center
 #---
 # Center a float
-bindsym $mod+c move absolute position center
+bindsym $mod+c move position center
 # --
 # Special modifier
 bindsym $mod+z --release exec "xdotool key --clearmodifiers  135"

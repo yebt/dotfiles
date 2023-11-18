@@ -159,8 +159,15 @@ font:
     # family: VictorMono Nerd Font
     # family: CaskaydiaCove Nerd Font
     #
-    family: Agave Nerd Font
+    # family: Agave Nerd Font
     #family: Geist Mono
+    #
+    # Github monaspace
+    # family: Monaspace Neon
+    # family: Monaspace Argon
+    # family: Monaspace Xenon
+    # family: Monaspace Radon
+    family: Monaspace Krypton
 
     # The `style` can be specified to pick a specific face.
     #style: Regular

@@ -11,6 +11,7 @@
     # ~/.config/nvim: editors/nvim
     ~/.config/tmux: os/linux/tmux
     ~/.config/alacritty: os/linux/alacritty
+    ~/.config/kitty: os/linux/kitty
     ~/.config/ranger: os/linux/ranger
     ~/.config/i3: os/linux/i3
     ~/.config/tabtab: os/linux/tabtab

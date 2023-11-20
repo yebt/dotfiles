@@ -13,6 +13,7 @@
     ~/.config/alacritty: os/linux/alacritty
     ~/.config/kitty: os/linux/kitty
     ~/.config/ranger: os/linux/ranger
+    ~/.config/autorandr: os/linux/autorandr
     ~/.config/i3: os/linux/i3
     ~/.config/tabtab: os/linux/tabtab
     ~/.gitconfig: git/.gitconfig

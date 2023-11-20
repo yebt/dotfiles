@@ -162,6 +162,7 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 
+
 # battery notification
 exec_always --no-startup-id "$HOME/.config/i3/scripts/bat/i3bat.sh"
 

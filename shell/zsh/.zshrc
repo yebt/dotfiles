@@ -39,3 +39,7 @@ source "$DOTFILES_PATH/shell/zsh/key-bindings.zsh"
 # tabtab source for packages
 # uninstall by removing these lines
 [[ -f ~/.config/tabtab/zsh/__tabtab.zsh ]] && . ~/.config/tabtab/zsh/__tabtab.zsh || true
+
+# vars
+set -o noclobber # dont put content accidentaly to not existing files
+set -o appendcreate # append content with echo in not existing files

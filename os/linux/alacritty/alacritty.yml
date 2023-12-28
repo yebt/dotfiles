@@ -14,13 +14,14 @@ import:
   # - ~/.config/alacritty/themes/catppuccin-mocha.yml
   # - ~/.config/alacritty/themes/tomorrow_night.yaml
   # - ~/.config/alacritty/themes/gotham.yaml
-  # - ~/.config/alacritty/themes/iterm.yaml
+  - ~/.config/alacritty/themes/iterm.yaml
   # - ~/.config/alacritty/themes/seashells.yaml
   # - ~/.config/alacritty/themes/citylights.yaml ##
   # - ~/.config/alacritty/themes/challenger_deep.yaml
   # - ~/.config/alacritty/themes/github_dark_colorblind.yaml ##
   # - ~/.config/alacritty/themes/github_dark_default.yaml
-  - ~/.config/alacritty/themes/kanagawa_wave.yaml
+  # - ~/.config/alacritty/themes/kanagawa_wave.yaml
+  # - ~/.config/alacritty/themes/kanagawa_dragon.yaml
   # - ~/.config/alacritty/themes/iterm.yaml
   # - ~/.config/alacritty/themes/dracula.yaml
   # - ~/.config/alacritty/themes/nord.yaml
@@ -83,7 +84,8 @@ window:
   #
   # Window opacity as a floating point number from `0.0` to `1.0`.
   # The value `0.0` is completely transparent and `1.0` is opaque.
-  opacity: 0.96
+  # opacity: 0.96
+  # opacity: 0.0
   # opacity: 1
 
   # Startup Mode (changes require restart)

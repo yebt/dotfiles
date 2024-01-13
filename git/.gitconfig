@@ -6,3 +6,5 @@
 [alias]
 	unstage = reset HEAD --
 	st = status --short --branch
+	br = branch
+	ci = commit

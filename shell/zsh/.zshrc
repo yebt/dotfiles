@@ -33,13 +33,18 @@ source "$DOTFILES_PATH/shell/zsh/key-bindings.zsh"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# tabtab source for electron-forge package
-# uninstall by removing these lines or running `tabtab uninstall electron-forge`
-[[ -f /home/eb/.local/share/pnpm/store/v3/tmp/dlx-100463/node_modules/.pnpm/tabtab@2.2.2/node_modules/tabtab/.completions/electron-forge.zsh ]] && . /home/eb/.local/share/pnpm/store/v3/tmp/dlx-100463/node_modules/.pnpm/tabtab@2.2.2/node_modules/tabtab/.completions/electron-forge.zsh
-# tabtab source for packages
-# uninstall by removing these lines
-[[ -f ~/.config/tabtab/zsh/__tabtab.zsh ]] && . ~/.config/tabtab/zsh/__tabtab.zsh || true
 
 # vars
 set -o noclobber # dont put content accidentaly to not existing files
 set -o appendcreate # append content with echo in not existing files
+
+# bun completions
+[ -s "/home/eb/.bun/_bun" ] && source "/home/eb/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# tabtab source for packages
+# uninstall by removing these lines
+[[ -f ~/.config/tabtab/zsh/__tabtab.zsh ]] && . ~/.config/tabtab/zsh/__tabtab.zsh || true

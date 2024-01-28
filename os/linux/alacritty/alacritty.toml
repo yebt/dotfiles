@@ -1,4 +1,8 @@
-import = ["/home/eb/.config/alacritty/themes/iterm.toml"]
+#import = ["/home/eb/.config/alacritty/themes/iterm.toml"]
+#import = ["~/.config/alacritty/themes/yebt-0xide.toml"]
+import = [
+    "~/.config/alacritty/themes/themes/yebt-0xide.toml"
+]
 
 [env]
 TERM = "xterm-256color"

@@ -1,0 +1,90 @@
+#Colors
+# https://coolors.co/00d992-00a667-ff6286-eb5776-ffb615-d3961c-85a2ff-738be3
+#Bases
+# https://coolors.co/060f11-121b1d-1a2225-e7e7e8-a0a4a5-5a5f61
+
+# color_orange_base="#FF8C4E"
+# color_orange_dim="#DF7749"
+
+[colors.primary]
+background = '#0C1517' # base
+foreground = '#E7E7E8' # text
+# Bright and dim foreground colors
+dim_foreground = '#A0A4A5' # text
+bright_foreground = '#efefef' # text
+
+# Cursor colors
+[colors.cursor]
+#text = '#1E1E2E' # base
+text = '#1A2225' # base
+#cursor = '#F5E0DC' # rosewater
+cursor = '#78E4C1' # rosewater
+
+[colors.vi_mode_cursor]
+#text = '#1E1E2E' # base
+#cursor = '#B4BEFE' # lavender
+text = '#1A2225' # base
+cursor = '#BAC9F7' # lavender
+
+# Search colors
+[colors.search.matches]
+foreground = '#1E1E2E' # base
+background = '#A6ADC8' # subtext0
+
+[colors.search.focused_match]
+foreground = '#029A67' # base
+background = '#053527' # green
+
+[colors.footer_bar]
+foreground = '#029A67' # base
+background = '#053527' # subtext0
+
+# Keyboard regex hints
+[colors.hints.start]
+foreground = '#1E1E2E' # base
+background = '#F9E2AF' # yellow
+
+[colors.hints.end]
+foreground = '#1E1E2E' # base
+background = '#A6ADC8' # subtext0
+
+# Selection colors
+[colors.selection]
+text = '#1E1E2E' # base
+background = '#F5E0DC' # rosewater
+
+# Normal colors
+#[colors.normal]
+[colors.bright]
+#black = '#1A2225' # surface1
+black = '#5A5F61' # surface1
+red = '#EB5776' # red
+green = '#00A667' # green
+yellow = '#D3961C' # yellow
+blue = '#738BE3' # blue
+magenta = '#AA7ED0' # pink
+cyan = '#43BEC9' # teal
+white = '#E6E6E6' # subtext1
+
+# Bright colors
+#[colors.bright]
+[colors.normal]
+black = '#3A4143' # surface2
+red = '#FF6286' # red
+green = '#00D992' # green
+yellow = '#FFB615' # yellow
+blue = '#85A2FF' # blue
+magenta = '#C693F1' # pink
+cyan = '#61C8D1' # teal
+white = '#F1F1F1' # subtext0
+
+# Dim colors
+[colors.dim]
+black = '#45475A' # surface1
+red = '#793344' # red
+green = '#035B3C' # green
+yellow = '#6D5317' # yellow
+blue = '#3D4D7A' # blue
+magenta = '#584771' # pink
+cyan = '#25676D' # teal
+white = '#A0A4A5' # subtext1

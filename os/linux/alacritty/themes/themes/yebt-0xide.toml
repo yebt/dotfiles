@@ -52,7 +52,8 @@ background = '#80C854' # subtext0
 [colors.normal]
 black = '#A0A4A5' # surface1
 red = '#FF6286' # red
-green = '#5ED597' # green
+#green = '#5ED597' # green
+green = '#00D992' # green
 yellow = '#FFB615' # yellow
 blue = '#85A2FF' # blue
 magenta = '#C693F1' # pink

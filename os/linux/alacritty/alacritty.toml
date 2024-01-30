@@ -1,5 +1,6 @@
 #import = ["/home/eb/.config/alacritty/themes/iterm.toml"]
 #import = ["~/.config/alacritty/themes/yebt-0xide.toml"]
+
 import = [
     "~/.config/alacritty/themes/themes/yebt-0xide.toml"
 ]
@@ -21,8 +22,15 @@ TERM = "xterm-256color"
 size = 12.0
 
 [font.normal]
-family = "GT America mono"
+#family = "GT America mono"
 #family = "Agave Nerd Font"
+#family = "FiraCode Nerd Font"
+family = "BlexMono Nerd Font"
+#family = "Geist Mono"
+#family = "Fira Mono"
+#family = "BigBlueTerm437 Nerd Font"
+#family = "Iosevka Nerd Font"
+#family = "CaskaydiaCove Nerd Font"
 
 [window]
 dynamic_padding = true

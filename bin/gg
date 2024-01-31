@@ -1,0 +1,90 @@
+#!/bin/bash
+
+# Git gum
+
+# -------------------------------------
+
+
+# -------------------------------------
+
+# ALLOW_COMMIT_TYPES=(
+#     "feat:introduces a new feature to the codebase:Minor"
+#     "fix:patches a bug in your codebase:Patch"
+#     "build:changes that affect the build system or external dependencies:Patch"
+#     "chore:routine tasks or updates that don't modify src or test files:Patch"
+#     "ci:changes to our CI configuration files and scripts:Patch"
+#     "docs:changes only affecting documentation:Patch"
+#     "perf:improvements that increase performance:Patch"
+#     "refactor:code changes that neither fix a bug nor add a feature:Patch"
+#     "revert:reverts a previous commit:Patch"
+#     "style:changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc):Patch"
+#     "test:adding or correcting tests:Patch"
+# )
+ALLOW_COMMIT_TYPES=(
+    "feat"
+    "fix"
+    "build"
+    "chore"
+    "ci"
+    "docs"
+    "perf"
+    "refactor"
+    "revert"
+    "style"
+    "test"
+)
+
+# -------------------------------------------
+exit_if_empty() {
+    if [ -z "$1" ]; then
+        exit
+    fi
+}
+# -------------------------------------------
+
+# FORMATED_LIST=()
+# BOLD="\033[1m"
+# ITALIC="\033[3m"
+# RESET="\033[0m"
+
+# for i in "${ALLOW_COMMIT_TYPES[@]}"; do
+#     commit_type=${i%%:*}
+#     rest=${i#*:}
+#     description=${rest%%:*}
+#     version="${rest##*:}"
+#     FORMATED_LIST+=("$commit_type\t$BOLD$description$RESET\t$version")
+# done
+if [[ -z $(git diff --cached --name-only) ]]; then
+    echo "No staged files"
+    exit
+fi
+
+TEST_LIST=(
+    "feat"
+    "fix"
+    "build"
+    "chore"
+)
+COMMIT_TYPE=$(gum filter  --height=6 --cursor-text.foreground="6" --header="Select Commit Type" --placeholder="fix" --indicator="#" "${ALLOW_COMMIT_TYPES[@]}")
+exit_if_empty "$COMMIT_TYPE"
+
+COMMIT_SCOPE=$(gum input --placeholder "scope")
+test -n "$COMMIT_SCOPE" && COMMIT_SCOPE="($COMMIT_SCOPE)"
+# exit_if_empty "$COMMIT_SCOPE"
+
+COMMIT_SUMMARY=$(gum input --value "$COMMIT_TYPE$COMMIT_SCOPE: " --placeholder "Summary of this change")
+exit_if_empty "$COMMIT_SUMMARY"
+echo "$COMMIT_SUMMARY" 
+
+COMMIT_DESCRIPTION=$(gum write --placeholder "Details of this change (CTRL+D to finish)")
+git commit -m "$COMMIT_SUMMARY" -m "$DESCRIPTION"
+
+gum confirm "Commit changes?" && git commit -m "$SUMMARY" -m "$DESCRIPTION"
+
+# gum choose --header="Select Commit Type" --selected="build"  "${TEST_LIST[@]}"
+#gum --height 50% --with-nth=1 --delimiter='\t' --preview="echo -e \"{2}${FS_BOLD}\n{3}\"" --preview-window=right:50%:wrap --header="Select Commit Type"
+
+# gum choose --height 50% --with-nth=1 --delimiter='\t' --preview="echo -e \"{2}${FS_BOLD}\n{3}\"" --preview-window=right:50%:wrap --header="Select Commit Type"  "fix" "feat" "docs" "style" "refactor" "test" "chore" "revert"
+
+
+

@@ -1,0 +1,18 @@
+#!/bin/bash
+DOCKER_COMMAND=podman
+# Get a list of all running containers
+container_ids=$($DOCKER_COMMAND ps -q)
+
+# Iterate over each container
+for container_id in $container_ids; do
+  # Get the container name
+  container_name=$($DOCKER_COMMAND inspect --format '{{.Name}}' "$container_id" | sed 's/\///')
+
+  # Get the container IP address
+  container_ip=$($DOCKER_COMMAND inspect --format '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' "$container_id")
+  #$DOCKER_COMMAND network inspect -f '{{json .Containers}}' $container_id | jq '.[] | .Name + ":" + .IPv4Address'
+  $DOCKER_COMMAND inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $container_id
+
+  # Print container name and IP address
+  echo "Container: $container_name, IP: $container_ip"
+done

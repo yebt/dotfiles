@@ -78,7 +78,7 @@ echo "$COMMIT_SUMMARY"
 
 COMMIT_DESCRIPTION=$(gum write --placeholder "Details of this change (CTRL+D to finish)")
 
-gum confirm "Commit changes?" && git commit -m "$SUMMARY" -m "$DESCRIPTION"
+gum confirm "Commit changes?" && git commit -m "$COMMIT_SUMMARY" -m "$COMMIT_DESCRIPTION"
 
 # gum choose --header="Select Commit Type" --selected="build"  "${TEST_LIST[@]}"
 #gum --height 50% --with-nth=1 --delimiter='\t' --preview="echo -e \"{2}${FS_BOLD}\n{3}\"" --preview-window=right:50%:wrap --header="Select Commit Type"

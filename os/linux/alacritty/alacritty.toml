@@ -1,43 +1,58 @@
-#import = ["/home/eb/.config/alacritty/themes/iterm.toml"]
-#import = ["~/.config/alacritty/themes/yebt-0xide.toml"]
-
-import = [
-    "~/.config/alacritty/themes/themes/yebt-0xide.toml"
-]
-
-live_config_reload = true
-
-
-# [shell]
-# program="/bin/zsh"
-# args=["--login"]
-#[shell]
-# program="/bin/fish"
-# args=["--login"]
-
-[env]
-TERM = "xterm-256color"
-
-[font]
-size = 12.0
-
+#  #import = ["/home/eb/.config/alacritty/themes/iterm.toml"]
+#  #import = ["~/.config/alacritty/themes/yebt-0xide.toml"]
+#  
+#  # import = [
+#  #     "~/.config/alacritty/themes/themes/yebt-0xide.toml"
+#  # ]
+#  
+#  live_config_reload = true
+#  
+#  
+#  # [shell]
+#  # program="/bin/zsh"
+#  # args=["--login"]
+#  #[shell]
+#  # program="/bin/fish"
+#  # args=["--login"]
+#  
+#  [env]
+#  TERM = "xterm-256color"
+#  
+#  [font]
+#  size = 12.0
+#  
 [font.normal]
-#family = "GT America mono"
+# {
+#family = "GT America Mono"
 #family = "Agave Nerd Font"
 #family = "FiraCode Nerd Font"
-family = "BlexMono Nerd Font"
+#family = "BlexMono Nerd Font"
 #family = "Geist Mono"
 #family = "Fira Mono"
 #family = "BigBlueTerm437 Nerd Font"
 #family = "Iosevka Nerd Font"
 #family = "CaskaydiaCove Nerd Font"
-
-[window]
-dynamic_padding = true
-dynamic_title = true
-title = "Alacritty"
-
-[window.padding]
-x = 2
-y = 2
-
+#family = "GohuFont 11 Nerd Font" ##
+#family = "GohuFont 14 Nerd Font"
+#family = "Hack Nerd Font Mono"
+#family = "iMWritingMono Nerd Font"
+#family = "iMWritingMono Nerd Font Mono" ##
+#family = "Inconsolata LGC Nerd Font Mono"
+#family = "InconsolataGo Nerd Font Mono"
+family = "Iosevka Nerd Font Mono" ### --
+#family = "JetBrains Mono" ##
+#family = "Liberation Mono"  ##
+#ly = "M+1Code Nerd Font"  ###
+#family = "SauceCodePro Nerd Font" 
+#family = "UbuntuMono Nerd Font" 
+#family = "Victormono Nerd Font"  ##
+#  
+#  [window]
+#  dynamic_padding = true
+#  dynamic_title = true
+#  #title = "Alacritty"
+#  
+#  [window.padding]
+#  x = 2
+#  y = 2
+#  

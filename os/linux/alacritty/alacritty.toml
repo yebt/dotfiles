@@ -1,58 +1,75 @@
-#  #import = ["/home/eb/.config/alacritty/themes/iterm.toml"]
-#  #import = ["~/.config/alacritty/themes/yebt-0xide.toml"]
-#  
-#  # import = [
-#  #     "~/.config/alacritty/themes/themes/yebt-0xide.toml"
-#  # ]
-#  
-#  live_config_reload = true
-#  
-#  
-#  # [shell]
-#  # program="/bin/zsh"
-#  # args=["--login"]
-#  #[shell]
-#  # program="/bin/fish"
-#  # args=["--login"]
-#  
-#  [env]
-#  TERM = "xterm-256color"
-#  
-#  [font]
-#  size = 12.0
-#  
-[font.normal]
-# {
-#family = "GT America Mono"
-#family = "Agave Nerd Font"
-#family = "FiraCode Nerd Font"
-#family = "BlexMono Nerd Font"
-#family = "Geist Mono"
-#family = "Fira Mono"
-#family = "BigBlueTerm437 Nerd Font"
-#family = "Iosevka Nerd Font"
-#family = "CaskaydiaCove Nerd Font"
-#family = "GohuFont 11 Nerd Font" ##
-#family = "GohuFont 14 Nerd Font"
-#family = "Hack Nerd Font Mono"
-#family = "iMWritingMono Nerd Font"
-#family = "iMWritingMono Nerd Font Mono" ##
-#family = "Inconsolata LGC Nerd Font Mono"
-#family = "InconsolataGo Nerd Font Mono"
-family = "Iosevka Nerd Font Mono" ### --
-#family = "JetBrains Mono" ##
-#family = "Liberation Mono"  ##
-#ly = "M+1Code Nerd Font"  ###
-#family = "SauceCodePro Nerd Font" 
-#family = "UbuntuMono Nerd Font" 
-#family = "Victormono Nerd Font"  ##
-#  
-#  [window]
-#  dynamic_padding = true
-#  dynamic_title = true
-#  #title = "Alacritty"
-#  
-#  [window.padding]
-#  x = 2
-#  y = 2
-#  
+# REFRENCE:
+# https://github.com/alacritty/alacritty/blob/master/extra/man/alacritty.5.scd
+# https://alacritty.org/config-alacritty.html 
+
+import = [
+"~/.config/alacritty/themes/themes/iterm.toml"
+]
+working_directory="None"
+live_config_reload=true
+
+[shell]
+program="/bin/zsh"
+args=["--login"]
+
+[env]
+WALO="UWU"
+
+[window]
+# padding.x=2
+# padding.y=2
+padding = { x = 3, y = 3 }
+dynamic_padding = true
+decorations = "None" # Full, None, Transparent, Buttons
+#dynamic_title = true
+#opacity=0.7
+#blur=true
+#title = "Alacritty"
+
+[font]
+normal = { family = "Iosevka", style = "Regular" }
+#bold = { family = "Fira Mono", style = "Bold" }
+bold = { style = "Bold" }
+italic = { family = "Victor Mono", style = "Italic" }
+bold_italic = { family = "Victor Mono", style = "Bold Italic" }
+size=11.5
+
+[mouse]
+hide_when_typing = true
+
+[keyboard]
+# bindings = [{ <key>, <mods>, <mode>, <action> | <chars> },]
+bindings = [
+{ key = "N", mods = "Control | Shift", action = "SpawnNewInstance"  },
+#{ key = "M", mods = "Control | Shift", action = "CreateNewWindow"  },
+]
+
+# [font.normal]
+# # {
+# #family = "GT America Mono"
+# #family = "Agave Nerd Font"
+# #family = "FiraCode Nerd Font"
+# #family = "BlexMono Nerd Font"
+# #family = "Geist Mono"
+# #family = "Fira Mono"
+# #family = "BigBlueTerm437 Nerd Font"
+# #family = "Iosevka Nerd Font"
+# #family = "CaskaydiaCove Nerd Font"
+# #family = "GohuFont 11 Nerd Font" ##
+# #family = "GohuFont 14 Nerd Font"
+# #family = "Hack Nerd Font Mono"
+# #family = "iMWritingMono Nerd Font"
+# #family = "iMWritingMono Nerd Font Mono" ##
+# #family = "Inconsolata LGC Nerd Font Mono"
+# #family = "InconsolataGo Nerd Font Mono"
+# family = "Iosevka Nerd Font Mono" ### --
+# #family = "JetBrains Mono" ##
+# #family = "Liberation Mono"  ##
+# #ly = "M+1Code Nerd Font"  ###
+# #family = "SauceCodePro Nerd Font" 
+# #family = "UbuntuMono Nerd Font" 
+# #family = "Victormono Nerd Font"  ##
+# #  
+# #  
+# # [keyboard]
+# # bindings = [{ <key>, <mods>, <mode>, <action> | <chars> },]

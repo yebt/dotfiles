@@ -15,7 +15,9 @@ export DOTLY_THEME="mod"
 # ------------------------------------------------------------------------------
 # Languages
 # ------------------------------------------------------------------------------
-export JAVA_HOME='/Library/Java/JavaVirtualMachines/amazon-corretto-15.jdk/Contents/Home'
+#export JAVA_HOME='/Library/Java/JavaVirtualMachines/amazon-corretto-15.jdk/Contents/Home'
+export JAVA_HOME='/usr/lib/jvm/java-17-openjdk'
+export PATH_TO_FX='/usr/lib/javafx/javafx-sdk-21.0.2/lib'
 export GEM_HOME="$HOME/.gem"
 export GOPATH="$HOME/.go"
 export COMPOSER_PATH="$HOME/.config/composer/vendor"

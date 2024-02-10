@@ -16,4 +16,5 @@
     ~/.config/autorandr: os/linux/autorandr
     ~/.config/i3: os/linux/i3
     ~/.config/tabtab: os/linux/tabtab
+    ~/.config/fontconfig: os/linux/fontconfig
     ~/.gitconfig: git/.gitconfig

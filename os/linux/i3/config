@@ -414,6 +414,22 @@ mode $modePowerMenu {
 }
 bindsym $mod+shift+e mode $modePowerMenu
 
+# Player control mode
+set $playerControlMenu "(P)prev (S)stop (T)toggle (N)next | (A)again (?)status"
+mode $playerControlMenu {
+    
+    bindsym P exec --no-startup-id "playerctl previous"
+    bindsym T exec --no-startup-id "playerctl play-pause"
+    bindsym S exec --no-startup-id "playerctl stop"
+    bindsym N exec --no-startup-id "playerctl next"
+    bindsym A exec --no-startup-id "playerctl posiiton 0"
+    #bindsym ? exec --no-startup-id 'notify-send "$( playerctl status && playerctl metadata -f "{{artist}} - {{title}}")"'
+    bindsym Escape mode "default"
+    bindsym Return mode "default"
+}
+bindsym $mod+shift+e mode $modePowerMenu
+
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 # bar {

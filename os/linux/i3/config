@@ -323,7 +323,7 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 #bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 #bindsym $mod+Shift+p exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
-bindsym $mod+Shift+p exec "notify-send 'uwu' `echo $PATH`"
+#bindsym $mod+Shift+p exec "notify-send 'uwu' `echo $PATH`"
 
 # 
 # Make the currently focused window a scratchpad
@@ -415,19 +415,18 @@ mode $modePowerMenu {
 bindsym $mod+shift+e mode $modePowerMenu
 
 # Player control mode
-set $playerControlMenu "(P)prev (S)stop (T)toggle (N)next | (A)again (?)status"
-mode $playerControlMenu {
-    
-    bindsym P exec --no-startup-id "playerctl previous"
-    bindsym T exec --no-startup-id "playerctl play-pause"
-    bindsym S exec --no-startup-id "playerctl stop"
-    bindsym N exec --no-startup-id "playerctl next"
-    bindsym A exec --no-startup-id "playerctl posiiton 0"
-    #bindsym ? exec --no-startup-id 'notify-send "$( playerctl status && playerctl metadata -f "{{artist}} - {{title}}")"'
+set $modePlayerControlMenu "(p)prev (s)stop (t)toggle (n)next | (A)again (?)status"
+mode $modePlayerControlMenu {
+    bindsym p exec --no-startup-id playerctl previous 
+    bindsym t exec --no-startup-id playerctl play-pause
+    bindsym s exec --no-startup-id playerctl stop  
+    bindsym n exec --no-startup-id playerctl next 
+    bindsym a exec --no-startup-id playerctl posiiton 0 
+    bindsym Shift+s exec --no-startup-id notify-send "$( playerctl status && playerctl metadata -f "{{artist}} - {{title}}")"
     bindsym Escape mode "default"
     bindsym Return mode "default"
 }
-bindsym $mod+shift+e mode $modePowerMenu
+bindsym $mod+shift+p mode $modePlayerControlMenu
 
 
 # Start i3bar to display a workspace bar (plus the system information i3status

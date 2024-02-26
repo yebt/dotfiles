@@ -43,3 +43,33 @@ alias up='dot package update_all'
 alias nv='nvim'
 alias rgr='ranger'
 alias clear="clear && printf '\e[3J'"
+
+#
+alias lzg='lazygit'
+alias lzd='lazydocker'
+
+# git
+# #########################
+typeset -g _git_log_fuller_format='%C(bold yellow)commit %H%C(auto)%d%n%C(bold)Author: %C(blue)%an <%ae> %C(reset)%C(cyan)%ai (%ar)%n%C(bold)Commit: %C(blue)%cn <%ce> %C(reset)%C(cyan)%ci (%cr)%C(reset)%n%+B'
+typeset -g _git_log_oneline_format='%C(bold yellow)%h%C(reset) %s%C(auto)%d%C(reset)'
+typeset -g _git_log_oneline_medium_format='%C(bold yellow)%h%C(reset) %<(50,trunc)%s %C(bold blue)%an %C(reset)%C(cyan)%as (%ar)%C(auto)%d%C(reset)'
+local gmodule_home=${0:A:h}
+
+local gprefix
+zstyle -s ':zim:git' aliases-prefix 'gprefix' || gprefix=G
+
+alias ${gprefix}l='git log --topo-order --pretty=format:"${_git_log_fuller_format}"'
+alias ${gprefix}ls='git log --topo-order --stat --pretty=format:"${_git_log_fuller_format}"'
+alias ${gprefix}ld='git log --topo-order --stat --patch --pretty=format:"${_git_log_fuller_format}"'
+alias ${gprefix}lf='git log --topo-order --stat --patch --follow --pretty=format:"${_git_log_fuller_format}"'
+alias ${gprefix}lo='git log --topo-order --pretty=format:"${_git_log_oneline_format}"'
+alias ${gprefix}lO='git log --topo-order --pretty=format:"${_git_log_oneline_medium_format}"'
+alias ${gprefix}lg='git log --graph --pretty=format:"${_git_log_oneline_format}"'
+alias ${gprefix}lG='git log --graph --pretty=format:"${_git_log_oneline_medium_format}"'
+alias ${gprefix}lv='git log --topo-order --show-signature --pretty=format:"${_git_log_fuller_format}"'
+alias ${gprefix}lc='git shortlog --summary --numbered'
+alias ${gprefix}lr='git reflog'
+
+unset gmodule_home gprefix
+
+# #########################

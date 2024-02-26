@@ -40,9 +40,19 @@ decorations = "Full" # Full, None, Transparent, Buttons
 #title = "Alacritty"
 
 [font]
-normal = { family = "Iosevka", style = "Regular" }
+#normal = { family = "Iosevka", style = "Regular" }
+#normal = { family = "BlexMono Nerd Font", style = "Regular" }
+#normal = { family = "BigBlueTerm437 Nerd Font", style = "Regular" }
+#normal = { family = "BigBlueTerm437 Nerd Font"}
+#normal = { family = "3270 Nerd Font"}
+#normal = { family = "Agave Nerd Font"}
+#normal = { family = "AnonymicePro Nerd Font"}
+#normal = { family = "BitstromWera Nerd Font"}
+normal = { family = "Cascadia Code"}
+#normal = { family = "JetBrains Mono"}
 #bold = { family = "Fira Mono", style = "Bold" }
-bold = { style = "Bold" }
+
+# bold = { style = "Bold" }
 italic = { family = "Victor Mono", style = "Italic" }
 bold_italic = { family = "Victor Mono", style = "Bold Italic" }
 size=11.5

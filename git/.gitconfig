@@ -13,3 +13,4 @@
 	ll = log --oneline
 	last = log -1 HEAD --stat
 	cm = commit -m
+	tree = log --oneline --graph --decorate --all

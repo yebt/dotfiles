@@ -1,10 +1,31 @@
 if [ -d "$HOME/.bookmarks" ]; then
-    export CDPATH=".:$HOME/.bookmarks:/"
-    alias goto="cd -P"
-    _goto() {
-        local IFS=$'\n'
-        COMPREPLY=($(compgen -W "$(/bin/ls ~/.bookmarks)" -- ${COMP_WORDS[COMP_CWORD]}))
-    } && complete -F _goto goto
+    # Function to navigate to bookmarks
+    goto() {
+        local bookmarks_dir="$HOME/.bookmarks"
+        # get bookmark
+        local selected_bookmark="$1"
+        if [ "$#" -eq 0 ]; then
+            if command -v fzf &>/dev/null; then
+                selected_bookmark=$(find "$bookmarks_dir" -type l -exec basename {} \; | fzf --prompt="Select bookmark: ")
+            else
+                echo "No argument provided. Install 'fzf' to use bookmark selection."
+            fi
+        fi
+        bookmark="$bookmarks_dir/$selected_bookmark"
+        # check symbolic link status
+        [ ! -e "$bookmark" ] && echo "Error: $bookmark not exist" && return 1
+        [ ! -L "$bookmark" ] && echo "Error: $bookmark is not a symbolic link" && return 1
+        cd -P $bookmark
+    }
+    # Bash completion for the goto function
+    _goto_completion() {
+        local bookmarks_dir="$HOME/.bookmarks"
+        local bookmarks
+        bookmarks=$(find "$bookmarks_dir" -type l -exec basename {} \; 2>/dev/null)
+        COMPREPLY=($(compgen -W "$bookmarks" -- "${COMP_WORDS[COMP_CWORD]}"))
+    }
+
+    complete -F _goto_completion goto
 
     # Configurable prefix for bookmarks
     BOOKMARK_PREFIX="@"
@@ -76,6 +97,5 @@ if [ -d "$HOME/.bookmarks" ]; then
 
     # Alias for listing bookmarks
     alias bmlist='list_bookmarks'
-
 
 fi

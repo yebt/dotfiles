@@ -12,8 +12,9 @@ if [ $# -ne 0 ]; then
     killall rofi
     selected_emoji=$(echo $1 | awk -F ':' '{print $1}')
     emoji_info=$(printf "%s\n" "${emojis[@]}" | grep "$selected_emoji")
-    echo -n "$selected_emoji" | xclip -selection clipboard
-    xdotool type --clearmodifiers "$selected_emoji"
+    xdotool type --delay 100 "$selected_emoji"
+    # echo -n "$selected_emoji" | xclip -selection clipboard
+    # xdotool type --clearmodifiers "$selected_emoji"
     exit 0
 fi
 

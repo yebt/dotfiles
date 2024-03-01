@@ -13,8 +13,8 @@ if [ $# -ne 0 ]; then
     selected_emoji=$(echo $1 | awk -F ':' '{print $1}')
     #notify-send $selected_emoji
     emoji_info=$(printf "%s\n" "${gitemojis[@]}" | grep "$selected_emoji")
-    echo -n "$selected_emoji" | xclip -selection clipboard
-    xdotool type --clearmodifiers "$selected_emoji"
+
+    xdotool type --delay 100 "$selected_emoji"
     exit 0
 fi
 

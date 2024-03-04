@@ -31,21 +31,88 @@ if [ -d "$HOME/.bookmarks" ]; then
     BOOKMARK_PREFIX="@"
 
     # Function to add a bookmark
+    # add_bookmark() {
+    #     local dir=$1
+    #     # Use current directory if $1 is not defined or is empty
+    #     if [ -z "$dir" ]; then
+    #         dir=$(pwd)
+    #     fi
+    #     local dir_name=$(basename "$dir")
+    #     local bookmark_name=${BOOKMARK_PREFIX}${dir_name}
+    #     # Check if bookmark already exists
+    #     if [ -e ~/.bookmarks/${bookmark_name} ]; then
+    #         read -p "Bookmark already exists. Do you want to overwrite it? (y/n): " choice
+    #         case "$choice" in
+    #             y | Y)
+    #                 # Overwrite existing bookmark
+    #                 ln -sf "$(realpath $dir)" ~/.bookmarks/${bookmark_name}
+    #                 echo "Bookmark overwritten for directory: ${dir}"
+    #                 ;;
+    #             *)
+    #                 echo "Bookmark not added. Choose a different name or use the existing bookmark."
+    #                 ;;
+    #         esac
+    #     else
+    #         # Create a symbolic link to the directory
+    #         ln -s "$(realpath $dir)" ~/.bookmarks/${bookmark_name}
+    #         echo "Bookmark added for directory: ${dir}"
+    #     fi
+    # }
+
+    # Function to add a bookmark
     add_bookmark() {
-        local dir=$1
-        # Use current directory if $1 is not defined or is empty
+        # Function to display help information
+        display_help() {
+            echo "Usage: $0 [options] [directory]"
+            echo "Options:"
+            echo "  --alias ALIAS  Use ALIAS as the bookmark name"
+            echo "  --help         Display this help message"
+        }
+
+        local dir
+        local alias_flag=false
+
+        # Parse options
+        while [ "$#" -gt 0 ]; do
+            case "$1" in
+                --alias)
+                    shift
+                    alias_flag=true
+                    alias_name="$1"
+                    ;;
+                --help)
+                    display_help
+                    return
+                    ;;
+                *)
+                    dir="$1"
+                    ;;
+            esac
+            shift
+        done
+
+        # Use current directory if not provided
         if [ -z "$dir" ]; then
             dir=$(pwd)
         fi
+
         local dir_name=$(basename "$dir")
-        local bookmark_name=${BOOKMARK_PREFIX}${dir_name}
+
+        if [ "$alias_flag" = true ]; then
+            # Use alias as the bookmark name
+            local bookmark_name=${BOOKMARK_PREFIX}${alias_name}
+        else
+            # Use directory name as the bookmark name
+            local bookmark_name=${BOOKMARK_PREFIX}${dir_name}
+        fi
+
         # Check if bookmark already exists
         if [ -e ~/.bookmarks/${bookmark_name} ]; then
             read -p "Bookmark already exists. Do you want to overwrite it? (y/n): " choice
             case "$choice" in
                 y | Y)
                     # Overwrite existing bookmark
-                    ln -sf "$(realpath $dir)" ~/.bookmarks/${bookmark_name}
+                    ln -sf "$(realpath "$dir")" ~/.bookmarks/${bookmark_name}
                     echo "Bookmark overwritten for directory: ${dir}"
                     ;;
                 *)
@@ -54,7 +121,7 @@ if [ -d "$HOME/.bookmarks" ]; then
             esac
         else
             # Create a symbolic link to the directory
-            ln -s "$(realpath $dir)" ~/.bookmarks/${bookmark_name}
+            ln -s "$(realpath "$dir")" ~/.bookmarks/${bookmark_name}
             echo "Bookmark added for directory: ${dir}"
         fi
     }
@@ -64,8 +131,15 @@ if [ -d "$HOME/.bookmarks" ]; then
         local bookmarks_dir=~/.bookmarks
         local bookmark_name=$1
 
+        if [ -z "$bookmark_name" ]; then
+            echo "No bookmark to remove"
+            return 1
+        fi
+
         # Check if bookmark exists
-        if [ -e "${bookmarks_dir}/${bookmark_name}" ]; then
+        #if [ -e "${bookmarks_dir}/${bookmark_name}" ]; then
+        # change conditional to bad symlinks
+        if [ -L "${bookmarks_dir}/${bookmark_name}" ]; then
             rm "${bookmarks_dir}/${bookmark_name}"
             echo "Bookmark removed for directory: ${bookmark_name}"
         else
@@ -84,7 +158,13 @@ if [ -d "$HOME/.bookmarks" ]; then
         for bookmark in ~/.bookmarks/*; do
             bookmark_name=$(basename "$bookmark")
             target=$(readlink "$bookmark")
-            echo -e "  \033[94m$bookmark_name\033[0m -> \033[92m$target\033[0m"
+            #echo -e "  \033[94m$bookmark_name\033[0m -> \033[92m$target\033[0m"
+            # Check if the symbolic link is valid
+            if [ -e "$target" ]; then
+                echo -e "  \033[94m$bookmark_name\033[0m -> \033[92m$target\033[0m"
+            else
+                echo -e "  \033[91m$bookmark_name\033[0m -> \033[91mInvalid Target\033[0m"
+            fi
         done
     }
 

@@ -22,6 +22,9 @@ export GEM_HOME="$HOME/.gem"
 export GOPATH="$HOME/.go"
 export COMPOSER_PATH="$HOME/.config/composer/vendor"
 
+export GRADLE_PATH="/opt/gradle/gradle-7.6.4/bin/"
+
+export ANDROID_HOME="$HOME/Android/Sdk"
 # ------------------------------------------------------------------------------
 # Apps
 # ------------------------------------------------------------------------------
@@ -61,6 +64,7 @@ export DOCKER_HOST=unix:///run/user/1000/podman/podman.sock
  	"/usr/bin"
  	"/usr/sbin"
  	"/sbin"
+ 	"$GRADLE_PATH"
  	$path
 )
 

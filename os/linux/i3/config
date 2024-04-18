@@ -179,6 +179,9 @@ exec_always --no-startup-id xinput set-prop "Elan Touchpad"  "libinput Tapping E
 # Delay of kyes
 #auto repeat delay:  660    repeat rate:  25
 exec_always --no-startup-id "xset r rate 250 20"
+
+# wallpappers
+exec_always --no-startup-id "feh --bg-scale /home/eb/Pictures/walls/astro/teal.png"
 # --------------------- KEYBINDINGS ---------------------
 
 # Use pactl to adjust volume in PulseAudio.
@@ -406,13 +409,13 @@ mode $borderer {
 bindsym $mod+b mode $borderer
 
 # exit
-set $modePowerMenu "(e)xit, (l)ock, (s)uspend,(r)reboot, (S)hutdown"
+set $modePowerMenu "(e)xit, (l)ock, (s)uspend,(r)reboot, (p)weroff"
 mode $modePowerMenu {
     bindsym e exec --no-startup-id i3-msg exit; mode "default"
     bindsym l exec --no-startup-id $locker; mode "default"
     bindsym s exec --no-startup-id systemctl suspend; mode "default"
     bindsym r exec --no-startup-id reboot; mode "default"
-    bindsym Shift+s exec --no-startup-id shutdown now; mode "default"
+    bindsym p exec --no-startup-id shutdown now; mode "default"
     bindsym Escape mode "default"
     bindsym Return mode "default"
 }
@@ -422,9 +425,10 @@ bindsym $mod+shift+e mode $modePowerMenu
 set $modePlayerControlMenu "(p)prev (s)stop (t)toggle (n)next | (a)again (?)status"
 mode $modePlayerControlMenu {
     bindsym p exec --no-startup-id playerctl previous 
+    bindsym n exec --no-startup-id playerctl next 
+
     bindsym t exec --no-startup-id playerctl play-pause; mode "default"
     bindsym s exec --no-startup-id playerctl stop; mode "default"
-    bindsym n exec --no-startup-id playerctl next 
     bindsym a exec --no-startup-id  playerctl position 0; mode "default"
     bindsym Shift+s exec --no-startup-id notify-send "$( playerctl status && playerctl metadata -f "{{artist}} - {{title}}")"
     bindsym Escape mode "default"

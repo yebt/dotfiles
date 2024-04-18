@@ -47,6 +47,7 @@ alias clear="clear && printf '\e[3J'"
 #
 alias lzg='lazygit'
 alias lzd='lazydocker'
+alias c='code .'
 
 # git
 # #########################

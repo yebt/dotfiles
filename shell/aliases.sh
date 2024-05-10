@@ -49,6 +49,10 @@ alias lzg='lazygit'
 alias lzd='lazydocker'
 alias c='code .'
 
+# 
+alias pdown="podman-compose down"
+alias pup="podman-compose up -d"
+
 # git
 # #########################
 typeset -g _git_log_fuller_format='%C(bold yellow)commit %H%C(auto)%d%n%C(bold)Author: %C(blue)%an <%ae> %C(reset)%C(cyan)%ai (%ar)%n%C(bold)Commit: %C(blue)%cn <%ce> %C(reset)%C(cyan)%ci (%cr)%C(reset)%n%+B'

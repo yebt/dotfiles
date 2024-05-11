@@ -1,0 +1,14 @@
+#!/bin/env bash
+
+set -euo pipefail
+choose="$(nmcli --terse --fields SSID device wifi list  | gum choose --header="Wifi")"
+
+# if [ -z "$choose" ] || [ "$choose" == 'user aborted' ]; then
+#     echo Abordet
+# fi
+
+pass="$(gum input --password --placeholder="Type password" --header "Connect to: $choose")"
+
+nmcli device wifi connect "$choose" password "$pass"
+
+

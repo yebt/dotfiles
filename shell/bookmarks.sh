@@ -22,21 +22,22 @@ if [ -d "$HOME/.bookmarks" ]; then
         cd -P $bookmark
     }
     # Bash completion for the goto function
+    _goto_completion() {
+        set completion-ignore-case on
+        local bookmarks_dir="$HOME/.bookmarks"
+        local bookmarks
+        bookmarks=$(find "$bookmarks_dir" -type l -exec basename {} \; 2>/dev/null)
+        COMPREPLY=($(compgen -W "$bookmarks" -- "${COMP_WORDS[COMP_CWORD]}"))
+    }
+
     # _goto_completion() {
     #     local bookmarks_dir="$HOME/.bookmarks"
     #     local bookmarks
-    #     bookmarks=$(find "$bookmarks_dir" -type l -exec basename {} \; 2>/dev/null)
-    #     COMPREPLY=($(compgen -W "$bookmarks" -- "${COMP_WORDS[COMP_CWORD]}"))
+    #     bookmarks=$(find "$bookmarks_dir" -type l -exec basename {} \; 2>/dev/null | tr '[:upper:]' '[:lower:]')
+    #     local lowercase_input
+    #     lowercase_input=$(echo "${COMP_WORDS[COMP_CWORD]}" | tr '[:upper:]' '[:lower:]')
+    #     COMPREPLY=($(compgen -W "$bookmarks" -- "$lowercase_input"))
     # }
-
-    _goto_completion() {
-        local bookmarks_dir="$HOME/.bookmarks"
-        local bookmarks
-        bookmarks=$(find "$bookmarks_dir" -type l -exec basename {} \; 2>/dev/null | tr '[:upper:]' '[:lower:]')
-        local lowercase_input
-        lowercase_input=$(echo "${COMP_WORDS[COMP_CWORD]}" | tr '[:upper:]' '[:lower:]')
-        COMPREPLY=($(compgen -W "$bookmarks" -- "$lowercase_input"))
-    }
 
 
     complete -F _goto_completion goto

@@ -52,3 +52,13 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 autoload -U +X bashcompinit && bashcompinit
 autoload -U +X compinit && compinit
 source "$DOTFILES_PATH/shell/bookmarks.sh"
+source ~/completion-for-pnpm.bash
+setopt appendhistory
+
+# pnpm
+export PNPM_HOME="/home/eb/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end

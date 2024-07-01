@@ -17,4 +17,5 @@
     ~/.config/i3: os/linux/i3
     ~/.config/tabtab: os/linux/tabtab
     ~/.config/fontconfig: os/linux/fontconfig
+    ~/.config/xfe/: os/linux/xfe
     ~/.gitconfig: git/.gitconfig

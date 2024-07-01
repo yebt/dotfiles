@@ -11,7 +11,9 @@ set $compositor compton
 
 set $fm HDMI-A-0 
 
+# Set specific workspace to ouput
 workspace 1 output $fm
+workspace 4 output $fm
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.

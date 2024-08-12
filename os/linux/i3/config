@@ -141,6 +141,8 @@ for_window [instance="xpad"] floating enable
 
 for_window [title="Electron"] floating enable
 
+for_window [title="Xfe"] floating enable
+
 # Go to urgent
 for_window [urgent="latest"] focus
 

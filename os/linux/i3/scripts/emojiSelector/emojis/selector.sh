@@ -4,7 +4,8 @@
 script_path="$(dirname "$(readlink -f "$0")")"
 
 # Archivo JSON que contiene la lista de emojis
-emoji_file="$script_path/emojis.json"
+# emoji_file="$script_path/emojis.json"
+emoji_file="$script_path/emojis_all.json"
 
 emojis=("$(jq -r '.[] | .emoji + ":" + .description + ":" + .category + ":" + (.tags | join(",")) + ":" + (.aliases | join(","))' "$emoji_file")")
 

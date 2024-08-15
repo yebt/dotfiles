@@ -36,33 +36,62 @@ TERM="tmux-256color"
 [window]
 # padding.x=2
 # padding.y=2
-padding = { x = 3, y = 3 }
+padding = { x = 8, y = 4 }
 dynamic_padding = true
-decorations = "Full" # Full, None, Transparent, Buttons
+# decorations = "Full" # Full, None, Transparent, Buttons
+decorations = "None" # Full, None, Transparent, Buttons
 #dynamic_title = true
 #opacity=0.7
 #blur=true
 #title = "Alacritty"
 
 [font]
-normal = { family = "Iosevka", style = "Regular" }
+# Nice icons
+# normal = { family = "Mononoki Nerd Font"} ## Nice, fix reading
+# normal = { family = "GohuFont 14 Nerd Font"} ## BETTER
+# normal = { family = "Iosevka Nerd Font"}
+normal = { family = "BlexMono Nerd Font"}
+# normal = { family = "Terminess Nerd Font"} ## 
+# normal = { family = "BigBlueTerm437 Nerd Font"}
+# normal = { family = "BigBlueTermPlus Nerd Font"}
+# normal = { family = "Cascadia Code"}
+# normal = { family = "GohuFont 11 Nerd Font"} # NICE
+# normal = { family = "iMWritingMono Nerd Font"} 
+
+# normal = { family = "JetBrainsMono Nerd Font"}
+# normal = { family = "JetBrains Mono"}
+# normal = { family = "Lekton Nerd Font"} ## Little 
+# normal = { family = "Fira Mono"} ## 
+# normal = { family = "FiraCode Nerd Font"} ## 
+# Nice 
+# normal = { family = "3270 Nerd Font"}
+# normal = { family = "Agave Nerd Font"}
+
+# normal = { family = "AnonymicePro Nerd Font"}
+# normal = { family = "Iosevka Nerd Font Mono" }
+# normal = { family = "Iosevka NerdFont" }
+# normal = { family = "FiraCode NerdFont Mono" }
+# normal = { family = "Iosevka" }
+# normal = { family = "Iosevka Term", style = "Regular" }
+# normal = { family = "Iosevka Fixed", style = "Regular" } # make a better icons
 # normal = { family = "BlexMono Nerd Font", style = "Regular" }
+# normal = { family = "JetBrains Mono"}
+# normal = { family = "Fira Mono"}
+# normal = { family = "Cascadia Code"}
+
 #normal = { family = "BigBlueTerm437 Nerd Font", style = "Regular" }
 #normal = { family = "BigBlueTerm437 Nerd Font"}
 #normal = { family = "3270 Nerd Font"}
 #normal = { family = "Agave Nerd Font"}
-#normal = { family = "AnonymicePro Nerd Font"}
 #normal = { family = "BitstromWera Nerd Font"}
-# normal = { family = "Cascadia Code"}
-# normal = { family = "JetBrains Mono"}
 #bold = { family = "Fira Mono", style = "Bold" }
 
 # bold = { style = "Bold" }
 # italic = { family = "Victor Mono", style = "Italic" }
-italic = { family = "Iosevka", style="Italic"}
-bold_italic = { family = "BlexMono Nerd Font", style = "Bold Italic" }
+# italic = { family = "Iosevka", style="Italic"}
+# bold_italic = { family = "BlexMono Nerd Font", style = "Bold Italic" }
 # size=11.5
-size=12
+# size=12
 
 [mouse]
 hide_when_typing = true

@@ -7,9 +7,11 @@
 #: characters.
 
 # font_family      monospace
-# bold_font        auto
-# italic_font      auto
-# bold_italic_font auto
+# font_family      Krypton 
+font_family      Agave Nerd Font
+bold_font        auto
+italic_font      auto
+bold_italic_font auto
 
 #: You can specify different fonts for the bold/italic/bold-italic
 #: variants. To get a full list of supported fonts use the `kitty
@@ -24,7 +26,7 @@
 #:     italic_font      Operator Mono Book Italic
 #:     bold_italic_font Operator Mono Medium Italic
 
-# font_size 11.0
+font_size 12.0
 
 #: Font size (in pts)
 
@@ -1500,8 +1502,8 @@ editor nvim
 #: This option must be a comma separated list of the above values.
 #: This only source the first valid one in the above order.
 
-# term xterm-kitty
-term xterm-256
+term xterm-kitty
+# term xterm-256
 
 #: The value of the TERM environment variable to set. Changing this
 #: can break many terminal programs, only change it if you know what
@@ -2393,6 +2395,6 @@ map kitty_mod+f5 load_config_file
 
 
 # BEGIN_KITTY_THEME
-# Dracula
+# Catppuccin-Mocha
 include current-theme.conf
 # END_KITTY_THEME

@@ -5,7 +5,7 @@
 	defaultBranch = main
 [alias]
 	unstage = reset HEAD --
-	st = status --short --branch
+	st = status --short --branch --untracked-files
 	br = branch
 	ci = commit
 	l = log --pretty=format:\"%C(yellow)%h\\\\ %ad%Cred%d\\\\ %Creset%s%Cblue\\\\ [%cn]\" --decorate --date=short

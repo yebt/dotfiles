@@ -1,0 +1,18 @@
+# dracula
+default-timeout=4000
+
+background-color=#282a36
+text-color=#cdd6f4
+border-color=#282a36
+
+[urgency=low]
+border-color=#282a36
+
+[urgency=normal]
+#border-color=#f1fa8c
+border-color=#8D9261
+
+[urgency=high]
+background-color=#5E353E
+border-color=#ff5555
+default-timeout=0

@@ -1,0 +1,174 @@
+// -*- mode: jsonc -*-
+{
+	"layer": "top",
+	//"position": "right",
+	//"height": 25,
+	//"width": 100,
+	"modules-left": [
+		"clock",
+		"idle_inhibitor",
+		"hyprland/submap"
+	],
+	"modules-center": [
+		//"hyprland/window",
+		"hyprland/workspaces"
+	],
+
+	"modules-right": [
+		"backlight",
+		"pulseaudio",
+		"network#w2",
+		"battery",
+		//"power-profiles-daemon"
+		"tray"
+	],
+
+
+	"pulseaudio": {
+		"format": "{volume}% {icon} ",
+		"format-bluetooth": "{volume}% {icon} ",
+		"format-muted": " ",
+		"format-icons": {
+			"alsa_output.pci-0000_00_1f.3.analog-stereo": "",
+			"alsa_output.pci-0000_00_1f.3.analog-stereo-muted": "",
+			"headphone": "",
+			"hands-free": "󰂑",
+			"headset": "󰂑",
+			"phone": "",
+			"phone-muted": "",
+			"portable": "",
+			"car": "",
+			"default": ["", ""]
+		},
+		"scroll-step": 1,
+		"on-click": "pavucontrol"
+	},
+
+	"network": {
+		//"interface": "wlp2s0",
+		"format": "{ifname}",
+		"format-wifi": "{essid} ({signalStrength}%)  ",
+		"format-ethernet": "{ifname}  ",
+		"format-disconnected": "", //An empty format will hide the module.
+		"format-disconnected": " ",
+		"tooltip-format": "{ifname}",
+		"tooltip-format-wifi": "{essid} ({signalStrength}%)  ",
+		"tooltip-format-ethernet": "{ifname}  ",
+		"tooltip-format-disconnected": "Disconnected",
+		"max-length": 50
+	},
+	"hyprland/workspaces": {
+		"format": "{icon}",
+		"format-window-separator": ", ",
+		"tooltip": true,
+		"tooltips": {
+			"default": "{name}: {windows}",
+			"empty": "" // Will result in no tooltip
+		},
+		"format-icons": {
+			//"1": "󰲡",
+			//"2": "󰲣",
+			//"3": "󰲥",
+			//"4": "󰲧",
+			//"5": "󰲩",
+			//"6": "󰲫",
+			//"7": "󰲭",
+			//"8": "󰲯",
+			//"9": "󰲱",
+			//"active": "",
+			//"default": "",
+			//"special": "󰿣"
+			"active": "",
+			"empty": "",
+			"default": "",
+		},
+		
+	// Window rewrites omitted for brevity
+	"persistent-workspaces": {
+"*": 5
+	}
+	},
+
+	"idle_inhibitor": {
+		"format": "{icon} ",
+		//"format": "{status} {timeleft}/{timeout}",
+		"format-icons": {
+			"activated": "",
+			"deactivated": ""
+		},
+		//"timeout": 480,
+		//"dynamic-timeouts": true,
+		//"timeout-step": 10
+	},
+
+	"clock": {
+		"format": "{:%H:%M}",
+		"format-alt": "{:%A, %B %d, %Y (%R)}",
+		"tooltip-format": "<tt><small>{calendar}</small></tt>",
+		"calendar": {
+			"mode"             : "month",
+			"mode-mon-col"     : 3,
+			"weeks-pos"        : "right",
+			"first-day-of-week": 1,
+			"on-scroll"        : 1,
+			"on-click-right"   : "mode",
+			"format": {
+				"months":     "<span color='#ffead3'><b>{}</b></span>",
+				"days":       "<span color='#ecc6d9'><b>{}</b></span>",
+				"weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
+				"weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+				"today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+			}
+		},
+		"actions": {
+			"on-click-right": "mode",
+			"on-click-forward": "tz_up",
+			"on-click-backward": "tz_down",
+			"on-scroll-up": "shift_up",
+			"on-scroll-down": "shift_down"
+		}
+	},
+	"backlight": {
+	// "device": "acpi_video1",
+	"format": "{percent}% {icon} ",
+	"format-icons": ["", "", "", "", "", "", "", "", ""]
+	},
+	"battery": {
+		"states": {
+			"good": 95,
+			"warning": 30,
+			"critical": 15
+		},
+		"format": "{icon} ",
+		"format-full": "{capacity}% {icon} ",
+		"format-charging": "{capacity}% 󰃨 ",
+		"format-plugged": "{capacity}%  ",
+		"format-alt": "{time} {capacity}% {icon} ",
+	// "format-good": "", // An empty format will hide the module
+	// "format-full": "",
+	"format-icons": ["", "", "", "", ""]
+	},
+
+	"network#w2": {
+	// "interface": "wlp2*", // (Optional) To force the use of this interface
+	"format-wifi": "({signalStrength}%)  ",
+	"format-ethernet": "{ipaddr}/{cidr} 󰊗 ",
+	"tooltip-format": "{essid} - {ifname} via {gwaddr} 󰊗 ",
+	"format-linked": "{ifname} (No IP) 󰊗 ",
+	"format-disconnected": "Disconnected ⚠",
+	"format-alt": "{ifname}: {ipaddr}/{cidr}"
+	},
+
+
+	"tray": {
+	// "icon-size": 21,
+	"spacing": 10,
+	// "icons": {
+	//   "blueman": "bluetooth",
+	//   "TelegramDesktop": "$HOME/.local/share/icons/hicolor/16x16/apps/telegram.png"
+	// }
+	},
+	"spacing": 10
+
+
+}

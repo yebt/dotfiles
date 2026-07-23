@@ -1,0 +1,14 @@
+[general]
+import = [
+  "~/.config/alacritty/themes/alabaster_dark.toml"
+]
+
+[window]
+padding = { x=2, y=3 }
+dynamic_padding = true
+opacity = 0.96
+
+[[keyboard.bindings]]
+key = "Return"
+mods = "Shift"
+chars = "\u001B\r"
